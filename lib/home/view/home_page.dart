@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
           if (state is HomeLoaded) {
             return const Center(
               child: Text('Tracks loaded successfully!'),
+              // TODO: Display actual Track models here
             );
           }
           

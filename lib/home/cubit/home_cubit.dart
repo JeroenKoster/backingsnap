@@ -7,7 +7,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   void loadTracks() {
     emit(const HomeLoading());
-    // Simulating data loading
+    // TODO: Implement actual data loading from repository
+    // This is a skeleton implementation for demonstration
     emit(const HomeLoaded());
   }
 }
