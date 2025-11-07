@@ -1,0 +1,26 @@
+name: backingsnap
+description: Scan your sheet music, get an instant backing track. A mobile app for musicians built with Flutter.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.3
+  dart_mappable: ^4.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  bloc_test: ^9.1.5
+  mocktail: ^1.0.1
+  very_good_analysis: ^5.1.0
+  build_runner: ^2.4.7
+  dart_mappable_builder: ^4.2.0
+  patrol: ^3.2.0
+
+flutter:
+  uses-material-design: true
