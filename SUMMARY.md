@@ -92,10 +92,13 @@ backingsnap/
 
 ## Testing Coverage
 
+This project follows **Test-Driven Development (TDD)** methodology:
+
 ### Unit Tests (bloc_test)
 - ✅ Initial state verification
 - ✅ State transition testing
 - ✅ Business logic validation
+- ✅ Written before implementation (TDD)
 
 ### Integration Tests (Patrol)
 - ✅ App initialization
@@ -109,7 +112,7 @@ The project uses build_runner for:
 - `*.mapper.dart` files for Track model serialization
 - Type-safe JSON encode/decode methods
 
-Run: `flutter pub run build_runner build --delete-conflicting-outputs`
+Run: `flutter pub run build_runner build`
 
 ## Next Steps for Development
 

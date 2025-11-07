@@ -25,7 +25,7 @@ echo ""
 
 # Generate code
 echo "🔧 Generating code for models..."
-flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner build
 echo ""
 
 # Run analyzer

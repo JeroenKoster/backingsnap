@@ -6,7 +6,7 @@ Scan your sheet music, get an instant backing track. A mobile app for musicians 
 
 - 🎵 Music track management
 - 🏗️ Screaming (feature-first) architecture
-- 🧪 Comprehensive testing with BLoC test and Patrol
+- 🧪 Test-Driven Development (TDD) with comprehensive testing
 - 📦 Type-safe models with dart_mappable
 
 ## Architecture
@@ -56,7 +56,7 @@ flutter pub get
 
 3. Generate code for models
 ```bash
-flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner build
 ```
 
 ### Running the App
@@ -82,12 +82,12 @@ flutter test integration_test/
 When you modify models with `@MappableClass()` annotation, regenerate code:
 
 ```bash
-flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner build
 ```
 
 For continuous generation during development:
 ```bash
-flutter pub run build_runner watch --delete-conflicting-outputs
+flutter pub run build_runner watch
 ```
 
 ### Linting

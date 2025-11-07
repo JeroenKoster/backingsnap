@@ -55,13 +55,15 @@ The architecture is "screaming" - when you look at the `lib/` directory, you imm
 - [x] Test file created at `test/home/cubit/home_cubit_test.dart`
 - [x] Uses `bloc_test` package
 - [x] Tests HomeCubit behavior
+- [x] Follows Test-Driven Development methodology
 
 **Location**: `test/home/cubit/home_cubit_test.dart`
 
-**Test Coverage**:
+**Test Coverage** (TDD approach):
 - Initial state verification
 - State transitions using `blocTest` macro
 - Proper setup and teardown
+- Tests written to define behavior before implementation
 
 **Example**:
 ```dart
@@ -164,7 +166,7 @@ Beyond the requirements, the following have been added for completeness:
 Once Flutter is installed, run:
 
 1. `flutter pub get` - Install dependencies
-2. `flutter pub run build_runner build --delete-conflicting-outputs` - Generate mapper code
+2. `flutter pub run build_runner build` - Generate mapper code
 3. `flutter analyze` - Verify code quality
 4. `flutter test` - Run unit tests
 5. `flutter test integration_test/` - Run integration tests

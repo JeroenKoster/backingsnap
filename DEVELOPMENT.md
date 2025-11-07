@@ -79,10 +79,46 @@ class Track with TrackMappable {
 
 After modifying models, run:
 ```bash
-flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner build
 ```
 
 This generates `.mapper.dart` files with serialization logic.
+
+## Test-Driven Development (TDD)
+
+This project follows **Test-Driven Development** principles:
+
+1. **Write Tests First**: Before implementing a feature, write the tests that define the expected behavior
+2. **Red-Green-Refactor**: 
+   - **Red**: Write a failing test
+   - **Green**: Write minimal code to make the test pass
+   - **Refactor**: Improve the code while keeping tests green
+3. **Test Coverage**: Maintain high test coverage for business logic and critical paths
+
+### TDD Workflow Example
+
+```dart
+// 1. Write the test first (RED)
+blocTest<HomeCubit, HomeState>(
+  'emits [HomeLoading, HomeLoaded] when loadTracks is called',
+  build: () => HomeCubit(),
+  act: (cubit) => cubit.loadTracks(),
+  expect: () => [
+    isA<HomeLoading>(),
+    isA<HomeLoaded>(),
+  ],
+);
+
+// 2. Implement minimal code to pass (GREEN)
+class HomeCubit extends Cubit<HomeState> {
+  void loadTracks() {
+    emit(const HomeLoading());
+    emit(const HomeLoaded());
+  }
+}
+
+// 3. Refactor as needed while keeping tests green
+```
 
 ## Testing Strategy
 
@@ -146,33 +182,36 @@ Format code:
 flutter format .
 ```
 
-## Development Workflow
+## Development Workflow (TDD Approach)
 
-1. **Create a new feature**
-   ```bash
-   mkdir -p lib/feature_name/{models,cubit,view}
-   ```
+This project follows Test-Driven Development. For each new feature:
 
-2. **Implement business logic**
-   - Create cubit in `feature_name/cubit/`
+1. **Write Tests First**
+   - Create test file: `test/feature_name/cubit/feature_cubit_test.dart`
+   - Define expected behavior with failing tests
+   - Run tests to confirm they fail (RED)
+
+2. **Implement Minimal Code**
+   - Create cubit in `lib/feature_name/cubit/`
    - Define states
-   - Implement actions
+   - Write minimal code to pass tests (GREEN)
 
-3. **Add models**
+3. **Refactor**
+   - Improve code quality
+   - Keep tests passing
+   - Add models and UI
+
+4. **Add Models**
    - Create model in `feature_name/models/`
    - Add `@MappableClass()` annotation
    - Generate code with build_runner
 
-4. **Build UI**
+5. **Build UI**
    - Create widgets in `feature_name/view/`
    - Use `BlocBuilder` or `BlocConsumer` to react to state changes
+   - Write widget tests if needed
 
-5. **Write tests**
-   - Unit tests for cubit: `test/feature_name/cubit/`
-   - Widget tests for UI components
-   - Integration tests for user flows
-
-6. **Run checks**
+6. **Run Checks**
    ```bash
    flutter analyze
    flutter test
@@ -200,7 +239,7 @@ If code generation fails:
 ```bash
 flutter clean
 flutter pub get
-flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner build
 ```
 
 ### Test failures
