@@ -20,7 +20,7 @@ void main() {
 
     blocTest<HomeCubit, HomeState>(
       'emits [HomeLoading, HomeLoaded] when loadTracks is called',
-      build: () => HomeCubit(),
+      build: HomeCubit.new,
       act: (cubit) => cubit.loadTracks(),
       expect: () => [
         isA<HomeLoading>(),

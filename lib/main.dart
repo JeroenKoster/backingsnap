@@ -1,8 +1,7 @@
+import 'package:backingsnap/home/cubit/home_cubit.dart';
+import 'package:backingsnap/home/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'home/cubit/home_cubit.dart';
-import 'home/view/home_page.dart';
 
 void main() {
   runApp(const App());
